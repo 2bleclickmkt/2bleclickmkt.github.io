@@ -463,6 +463,56 @@ footer{background:var(--beige);padding:80px 48px 40px;border-top:1px solid rgba(
 .footer-links a:hover{opacity:1;}
 .footer-credit{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--navy);opacity:.28;}
 
+/* ── SERVICIOS EXPANDIBLES ── */
+.service-row{flex-direction:column;align-items:stretch;cursor:none;}
+.service-row-top{display:flex;align-items:center;justify-content:space-between;padding:28px 0;}
+.service-toggle{font-size:22px;font-weight:300;color:var(--navy);opacity:.35;margin-left:24px;transition:transform .35s ease,opacity .2s;}
+.service-row.open .service-toggle{transform:rotate(45deg);opacity:.8;}
+.service-row:hover .service-toggle{opacity:.7;}
+.service-desc{
+  max-height:0;overflow:hidden;
+  font-size:15px;font-weight:400;color:var(--navy);opacity:.55;line-height:1.75;
+  transition:max-height .45s cubic-bezier(.4,0,.2,1),padding .35s ease;
+  padding-left:80px;max-width:720px;
+}
+.service-row.open .service-desc{max-height:120px;padding-bottom:28px;}
+
+/* ── TESTIMONIOS ── */
+.testimonials{background:var(--navy);padding:140px 48px;}
+.testi-inner{max-width:1200px;margin:0 auto;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px;}
+.testi-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(245,240,227,.07);
+  padding:44px 36px;display:flex;flex-direction:column;gap:32px;
+  transition:background .25s;
+}
+.testi-card:hover{background:rgba(255,255,255,.08);}
+.testi-quote{font-size:32px;font-weight:900;color:rgba(245,240,227,.12);line-height:1;margin-bottom:-16px;}
+.testi-text{font-size:15px;font-weight:400;color:rgba(245,240,227,.65);line-height:1.75;font-style:italic;}
+.testi-author{margin-top:auto;padding-top:24px;border-top:1px solid rgba(245,240,227,.07);}
+.testi-name{font-size:13px;font-weight:800;color:var(--beige);margin-bottom:4px;}
+.testi-company{font-size:11px;font-weight:600;letter-spacing:1px;color:rgba(245,240,227,.35);text-transform:uppercase;}
+
+/* ── FAQ ── */
+.faq{background:var(--beige);padding:140px 48px;}
+.faq-inner{max-width:860px;margin:0 auto;}
+.faq-list{margin-top:64px;display:flex;flex-direction:column;}
+.faq-item{border-bottom:1px solid rgba(26,53,102,.1);}
+.faq-item:first-child{border-top:1px solid rgba(26,53,102,.1);}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 0;cursor:none;gap:24px;
+}
+.faq-q-text{font-size:18px;font-weight:700;color:var(--navy);letter-spacing:-.3px;line-height:1.3;}
+.faq-icon{font-size:20px;font-weight:300;color:var(--navy);opacity:.35;flex-shrink:0;transition:transform .35s ease;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{
+  max-height:0;overflow:hidden;
+  font-size:15px;font-weight:400;color:var(--navy);opacity:.55;line-height:1.75;
+  transition:max-height .45s cubic-bezier(.4,0,.2,1),padding .35s ease;
+}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:28px;}
+
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .header{padding:18px 24px;}
@@ -636,12 +686,30 @@ footer{background:var(--beige);padding:80px 48px 40px;border-top:1px solid rgba(
 <section class="services" id="servicios">
   <p class="section-eyebrow">Lo que ofrecemos</p>
   <div class="services-list">
-    <a class="service-row"><span class="service-num">01</span><span class="service-name">Contenido & Creativos</span><span class="service-tag">Ideas · Guiones · Edición</span><span class="service-arrow">↗</span></a>
-    <a class="service-row"><span class="service-num">02</span><span class="service-name">Meta Ads</span><span class="service-tag">Estrategia · Campañas · Escalado</span><span class="service-arrow">↗</span></a>
-    <a class="service-row"><span class="service-num">03</span><span class="service-name">Métricas & Análisis</span><span class="service-tag">CRM · Dashboards · Reportes</span><span class="service-arrow">↗</span></a>
-    <a class="service-row"><span class="service-num">04</span><span class="service-name">Gestión Integral</span><span class="service-tag">Publicación · Copies · Community</span><span class="service-arrow">↗</span></a>
-    <a class="service-row"><span class="service-num">05</span><span class="service-name">Diseño Web</span><span class="service-tag">Landing Pages · Sitios desde cero</span><span class="service-arrow">↗</span></a>
-    <a class="service-row"><span class="service-num">06</span><span class="service-name">Conversión & Analytics</span><span class="service-tag">A/B Testing · Pixel · Optimización</span><span class="service-arrow">↗</span></a>
+    <div class="service-row" onclick="toggleService(this)">
+      <div class="service-row-top"><span class="service-num">01</span><span class="service-name">Contenido & Creativos</span><span class="service-tag">Ideas · Guiones · Edición</span><span class="service-toggle">+</span></div>
+      <div class="service-desc">Desde el guión hasta el video final. Producimos reels, stories, imágenes y copys optimizados para cada formato. Vos aprobás cada pieza antes de que salga.</div>
+    </div>
+    <div class="service-row" onclick="toggleService(this)">
+      <div class="service-row-top"><span class="service-num">02</span><span class="service-name">Meta Ads</span><span class="service-tag">Estrategia · Campañas · Escalado</span><span class="service-toggle">+</span></div>
+      <div class="service-desc">Armamos la estructura de campaña, configuramos el pixel, definimos audiencias y escalamos lo que funciona. Cada peso tiene un destino claro y medible.</div>
+    </div>
+    <div class="service-row" onclick="toggleService(this)">
+      <div class="service-row-top"><span class="service-num">03</span><span class="service-name">Métricas & Análisis</span><span class="service-tag">CRM · Dashboards · Reportes</span><span class="service-toggle">+</span></div>
+      <div class="service-desc">Dashboard personalizado con tus KPIs clave. Reportes semanales claros. Sabés exactamente a dónde va tu inversión y qué está generando resultados.</div>
+    </div>
+    <div class="service-row" onclick="toggleService(this)">
+      <div class="service-row-top"><span class="service-num">04</span><span class="service-name">Gestión Integral</span><span class="service-tag">Publicación · Copies · Community</span><span class="service-toggle">+</span></div>
+      <div class="service-desc">Publicación, copies, gestión de comentarios y estrategia de contenido orgánico. Tu presencia digital completa, sin que tengas que pensar en nada.</div>
+    </div>
+    <div class="service-row" onclick="toggleService(this)">
+      <div class="service-row-top"><span class="service-num">05</span><span class="service-name">Diseño Web</span><span class="service-tag">Landing Pages · Sitios desde cero</span><span class="service-toggle">+</span></div>
+      <div class="service-desc">Landing pages de alta conversión y sitios web completos optimizados para velocidad y SEO. Desde el diseño hasta el deploy, en tiempo récord.</div>
+    </div>
+    <div class="service-row" onclick="toggleService(this)">
+      <div class="service-row-top"><span class="service-num">06</span><span class="service-name">Conversión & Analytics</span><span class="service-tag">A/B Testing · Pixel · Optimización</span><span class="service-toggle">+</span></div>
+      <div class="service-desc">Configuración de eventos, A/B testing, análisis de funnel y optimización continua. Mejoramos cada paso entre el anuncio y la venta.</div>
+    </div>
   </div>
 </section>
 
@@ -749,6 +817,84 @@ footer{background:var(--beige);padding:80px 48px 40px;border-top:1px solid rgba(
           <div class="metric-lbl">Semanas para resultados visibles</div>
           <div class="metric-row"><span class="metric-big">4 sem.</span></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonials">
+  <div class="testi-inner">
+    <p class="section-eyebrow light">Lo que dicen</p>
+    <div class="testi-grid">
+      <div class="testi-card fade-up">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">En dos meses pasamos de casi no tener presencia digital a recibir consultas todos los días. Se encargaron de todo, desde el contenido hasta los anuncios.</p>
+        <div class="testi-author">
+          <div class="testi-name">Franco P.</div>
+          <div class="testi-company">Piscinas Porto · Córdoba</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up" style="--d:.15s">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Lo que más nos sorprendió fue la transparencia. Sabemos exactamente qué funciona y qué no. Nada de humo, todo con métricas reales.</p>
+        <div class="testi-author">
+          <div class="testi-name">Cliente 2bleclick</div>
+          <div class="testi-company">Córdoba · 2025</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up" style="--d:.3s">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Trabajar con 2bleclick fue un antes y un después. El proceso de los 3 meses tiene sentido: primero construyen bien, después escalan fuerte.</p>
+        <div class="testi-author">
+          <div class="testi-name">Cliente 2bleclick</div>
+          <div class="testi-company">Córdoba · 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <p class="section-eyebrow">Preguntas frecuentes</p>
+    <h2 class="proceso-headline" style="color:var(--navy);margin-bottom:0;">Lo que todos<br/>quieren saber.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-q-text">¿Cuánto tiempo tarda en verse resultados?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">El primer mes es de construcción y aprendizaje del algoritmo. A partir del mes 2 empezamos a ver optimizaciones claras. El mes 3 es donde el sistema está listo para escalar. Por eso pedimos mínimo 3 meses de trabajo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-q-text">¿Qué presupuesto necesito para publicidad?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Además del servicio, recomendamos un mínimo de USD 300–500/mes en pauta. El monto ideal depende de tu industria, competencia y objetivos. Te damos una estimación personalizada en la primera reunión.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-q-text">¿Qué pasa si no me gustan los creativos?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Antes de publicar cualquier pieza, pasa por tu aprobación. Hacemos las revisiones necesarias hasta que quedes conforme. Tu marca es tuya, nosotros la ejecutamos.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-q-text">¿Necesito tener redes sociales activas?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">No. Manejamos la producción de contenido de cero. Si ya tenés redes, las optimizamos. Si no, las creamos desde el principio con una estrategia clara.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-q-text">¿Con qué tipo de negocio trabajan?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Con negocios que venden productos o servicios con margen para invertir en publicidad y que están dispuestos a trabajar con un proceso serio. Si eso te describe, podemos hablar.</div>
       </div>
     </div>
   </div>
@@ -1021,6 +1167,18 @@ const numObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.2 });
 document.querySelectorAll('.num-card').forEach(c => numObs.observe(c));
+
+// ── SERVICIOS ACCORDION ──
+function toggleService(row) {
+  row.classList.toggle('open');
+}
+
+// ── FAQ ACCORDION ──
+function toggleFaq(item) {
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
 </script>
 </body>
 </html>
