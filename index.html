@@ -213,7 +213,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--beige);color:va
 .hero-stat:nth-child(2){animation-delay:1s;}
 .hero-stat:nth-child(3){animation-delay:1.15s;}
 .hero-stat:nth-child(4){animation-delay:1.3s;}
-.hs-val{font-family:'Unbounded',sans-serif;font-size:24px;font-weight:900;color:var(--navy);letter-spacing:-1px;}
+.hs-val{font-size:24px;font-weight:900;color:var(--navy);letter-spacing:-1px;}
 .hs-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--navy);opacity:.4;line-height:1.4;}
 
 /* ── TICKER ── */
@@ -328,7 +328,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--beige);color:va
   font-size:clamp(36px,5vw,68px);font-weight:900;color:var(--beige);
   letter-spacing:-2.5px;line-height:1;margin-bottom:80px;max-width:700px;
 }
-.proceso-headline em{font-style:normal;-webkit-text-stroke:1.5px var(--beige);color:transparent;}
+.proceso-headline em{font-style:normal;color:var(--beige);opacity:.55;}
 .proceso-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;position:relative;}
 .proceso-grid::before{
   content:'';position:absolute;z-index:0;
@@ -371,7 +371,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--beige);color:va
 .num-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.4,0,.2,1);}
 .num-card:hover::after{transform:scaleX(1);}
 .num-card:hover{background:rgba(245,240,227,.04);}
-.num-val{font-family:'Unbounded',sans-serif;font-size:clamp(52px,5.5vw,84px);font-weight:900;color:var(--beige);letter-spacing:-3px;line-height:1;margin-bottom:20px;display:block;transition:transform .3s;}
+.num-val{font-size:clamp(52px,5.5vw,84px);font-weight:900;color:var(--beige);letter-spacing:-3px;line-height:1;margin-bottom:20px;display:block;transition:transform .3s;}
 .num-card:hover .num-val{transform:scale(1.05);}
 .num-val small{font-size:.45em;letter-spacing:-1px;vertical-align:middle;}
 .num-label{font-size:11px;font-weight:700;color:rgba(245,240,227,.38);line-height:1.6;letter-spacing:1.2px;text-transform:uppercase;}
@@ -394,7 +394,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--beige);color:va
 .case-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,227,.3);margin-bottom:6px;}
 .case-client{font-size:clamp(40px,5.5vw,80px);font-weight:900;color:var(--beige);letter-spacing:-3px;line-height:.92;margin-bottom:12px;}
 .case-rubro{font-size:13px;font-weight:500;color:rgba(245,240,227,.35);line-height:1.5;margin-bottom:40px;}
-.case-big{font-family:'Unbounded',sans-serif;font-size:clamp(72px,11vw,128px);font-weight:900;color:var(--gold);letter-spacing:-4px;line-height:.85;margin-bottom:8px;}
+.case-big{font-size:clamp(72px,11vw,128px);font-weight:900;color:var(--gold);letter-spacing:-4px;line-height:.85;margin-bottom:8px;}
 .case-big-desc{font-size:16px;font-weight:500;color:rgba(245,240,227,.45);line-height:1.6;max-width:340px;margin-bottom:36px;}
 .case-pills{display:flex;flex-wrap:wrap;gap:8px;}
 .case-pill{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(245,240,227,.4);border:1px solid rgba(245,240,227,.1);border-radius:100px;padding:7px 14px;}
@@ -411,7 +411,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--beige);color:va
 .metric-arrow{font-size:14px;color:var(--gold);opacity:.7;}
 .metric-after{font-size:38px;font-weight:900;color:var(--gold);letter-spacing:-2px;}
 .metric-badge{margin-left:auto;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:100px;padding:5px 12px;font-size:10px;font-weight:800;color:#4ade80;letter-spacing:.5px;}
-.metric-big{font-family:'Unbounded',sans-serif;font-size:44px;font-weight:900;color:var(--gold);letter-spacing:-2px;}
+.metric-big{font-size:44px;font-weight:900;color:var(--gold);letter-spacing:-2px;}
 
 /* ── CLIENTES ── */
 .clients{padding:100px 48px;background:var(--beige);text-align:center;}
@@ -438,7 +438,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--beige);color:va
   font-size:clamp(56px,10vw,128px);font-weight:900;color:var(--navy);
   letter-spacing:-4px;line-height:.88;margin-bottom:44px;position:relative;z-index:1;
 }
-.contact-title em{font-style:normal;-webkit-text-stroke:2.5px var(--navy);color:transparent;}
+.contact-title em{font-style:normal;color:var(--navy);opacity:.4;}
 .contact-sub{font-size:17px;font-weight:400;color:var(--navy);opacity:.48;max-width:460px;margin:0 auto 52px;line-height:1.75;}
 .contact-cta{
   display:inline-flex;align-items:center;gap:14px;
